@@ -1,9 +1,8 @@
-use sysinfo::{Disk, DiskKind, Disks};
-
+use sysinfo::{Disk, Disks};
 
 #[derive(serde::Serialize)]
 pub struct DriveInfo {
-   pub name: String,
+    pub name: String,
     pub mount_point: String,
     pub kind: String,
 }
@@ -33,5 +32,3 @@ pub fn get_drive_info() -> Vec<DriveInfo> {
     let list_of_drive_info = disks.iter().map(|disk_item| DriveInfo::from(disk_item));
     list_of_drive_info.collect()
 }
-
-
